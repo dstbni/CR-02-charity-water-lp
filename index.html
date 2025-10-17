@@ -3,46 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
+    <title>Donate Funds Today - charity: water</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
-
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+    <!-- Header Section: Contains the charity: water logo and branding -->
+    <header class="header">
+        <div class="logo-container">
+            <!-- Yellow water drop icon -->
+            <div class="water-drop-icon">💧</div>
+            <!-- charity: water text logo -->
+            <h1 class="logo-text">charity: water</h1>
         </div>
-    </section>
+    </header>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+    <!-- Main Container: Holds the hero content and donation form side by side -->
+    <main class="main-container">
+        <!-- Left Side: Hero content with image and message -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <!-- Main headline -->
+                <h2 class="main-headline">DONATE FUNDS TODAY.</h2>
+                <p class="hero-text">
+                    Your donation will provide access to clean and drinkable water to underprivileged people.
+                </p>
+            </div>
+            <!-- Hero image of person with clean water -->
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=800&q=80" alt="Person holding clean water" class="main-image">
+            </div>
+        </section>
+
+        <!-- Right Side: Donation form -->
+        <section class="donation-form-section">
+            <!-- Top message about donation impact -->
+            <div class="donation-message">
+                <p><strong>100% of your donation provides clean water.</strong></p>
+                <p>You'll receive updates tracking the lives you've aided in changing.</p>
+            </div>
+
+            <!-- Donation form -->
+            <form class="donation-form">
+                <!-- Frequency selection: Single or Monthly -->
+                <div class="frequency-selector">
+                    <button type="button" class="frequency-btn active">SINGLE</button>
+                    <button type="button" class="frequency-btn">MONTHLY</button>
+                </div>
+
+                <!-- Amount selection grid -->
+                <div class="amount-grid">
+                    <button type="button" class="amount-btn">US$5</button>
+                    <button type="button" class="amount-btn">US$10</button>
+                    <button type="button" class="amount-btn">US$25</button>
+                    <button type="button" class="amount-btn">US$50</button>
+                </div>
+
+                <!-- Custom amount button -->
+                <button type="button" class="custom-amount-btn">
+                    CUSTOM<br>AMOUNT
+                </button>
+
+                <!-- Email input -->
+                <input type="email" class="form-input" placeholder="ENTER EMAIL" required>
+
+                <!-- Name input -->
+                <input type="text" class="form-input" placeholder="ENTER NAME" required>
+
+                <!-- Payment method selection -->
+                <div class="payment-methods">
+                    <button type="button" class="payment-btn">🍎 Pay</button>
+                    <button type="button" class="payment-btn">CREDIT/ DEBIT CARD</button>
+                </div>
+
+                <!-- Donate button -->
+                <button type="submit" class="donate-submit-btn">DONATE NOW</button>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
 
