@@ -466,6 +466,29 @@ html {
   display: block;   /* Remove extra space under the image */
 }
 
+/* Contact Footer - cream box with centered text */
+.site-footer {
+  background-color: #fff7e1;    /* Cream background */
+  color: #1a1a1a;               /* Dark text for good contrast */
+  text-align: center;           /* Center all text */
+  padding: 20px 16px;           /* Inner spacing */
+  margin: 20px auto;            /* Space above and below, center horizontally */
+  max-width: 1200px;            /* Match other section widths */
+  border-radius: 12px;          /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for depth */
+  font-family: 'Proxima Nova', Arial, sans-serif;
+}
+
+.site-footer h2 {
+  margin: 0 0 8px 0;            /* Space under heading */
+  letter-spacing: 1px;          /* Subtle heading style */
+}
+
+.site-footer p {
+  margin: 6px 0;                /* Space between lines */
+  line-height: 1.5;             /* Easier to read */
+}
+
 /* 
   Media Queries for Responsive Design
   These help make the page look good on different screen sizes
