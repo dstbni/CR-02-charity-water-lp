@@ -32,7 +32,7 @@ Fonts:
 
 body {
   font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
-  background-color: #003366; /* Dark blue background for entire page */
+  background-color: #1a1a1a; /* Dark background for the whole page */
   min-height: 100vh; /* Make sure page takes full height */
   color: #222;
 }
@@ -43,8 +43,9 @@ html {
 }
 
 /* Header section with logo */
+/* We set the header background to cream to match the request */
 .header {
-  background-color: #003366; /* Dark blue background for header */
+  background-color: #fff7e1; /* Updated from #003366 */
   padding: 15px 30px;
 }
 
@@ -54,59 +55,41 @@ html {
   gap: 10px; /* Space between icon and text */
 }
 
-.water-drop-icon {
-  background-color: #FFC907; /* Yellow background */
-  color: #2E9DF7; /* Blue water drop */
-  width: 40px;
-  height: 40px;
-  border-radius: 50% 50% 50% 0; /* Water drop shape */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  transform: rotate(-45deg); /* Rotate to make it look like a drop */
-}
+/* Removed unused: .water-drop-icon (no emoji in header) */
+/* Removed unused: .logo-text (header uses image now) */
 
-.logo-text {
-  color: #fff7e1; /* Changed from white */
-  font-size: 24px;
-  font-weight: normal;
-  letter-spacing: 2px;
+/* Size the header logo image so it fits nicely */
+.logo-image {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
 /* Transparent top navigation bar inside the hero section */
 .top-nav {
-  /* Transparent background lets the hero area show through */
-  background-color: rgba(26, 26, 26, 0.7); /* Translucent #1a1a1a */
-  position: absolute;   /* Sit at the top of the hero section */
+  background-color: rgba(0, 51, 102, 0.7); /* Translucent #003366 */
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 5;           /* Keep on top of hero content */
-  display: flex;        /* Put brand and links in a row */
-  align-items: center;  /* Vertically center items */
-  justify-content: space-between; /* Space between brand and links */
-  padding: 12px 16px;   /* Simple spacing */
-  font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova */
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  font-family: 'Proxima Nova', Arial, sans-serif;
 }
 
-/* Brand/heading in the nav (requested color #1a1a1a) */
-.top-nav .nav-brand {
-  color: #1a1a1a;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
+/* Removed unused: .top-nav .nav-brand (no brand element in nav) */
 
-/* Nav links */
 .top-nav .nav-links a {
-  color: #fff7e1; /* Changed from #ffffff */
-  text-decoration: none;         /* Remove underline */
-  margin-left: 16px;             /* Space between links */
+  color: #fff7e1;
+  text-decoration: none;
+  margin-left: 16px;
   font-weight: bold;
   font-family: 'Proxima Nova', Arial, sans-serif;
 }
 
-/* Simple hover to show they are clickable */
 .top-nav .nav-links a:hover {
   text-decoration: underline;
 }
@@ -123,45 +106,26 @@ html {
 
 /* Left side - Hero section with image and text */
 .hero-section {
-  flex: 1; /* Take up available space */
+  flex: 1;
   display: flex;
-  flex-direction: column; /* Stack content and image vertically */
+  flex-direction: column;
   position: relative;
+  background-image: url('img/hero-image.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 380px;
+  padding-top: 90px;
 }
 
 .hero-content {
-  background-color: #003366; /* Dark blue background for hero content */
-  color: #fff7e1; /* Changed from white */
+  color: #fff7e1;
   padding: 40px 30px;
-  flex: 1; /* Take up available space */
+  flex: 1;
+  background-color: transparent; /* Make the headline box transparent */
 }
 
-.main-headline {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-  font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova for heading */
-}
-
-.hero-text {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova for subheading */
-}
-
-.hero-image {
-  flex: 1; /* Take up remaining space */
-  overflow: hidden; /* Hide any overflow */
-}
-
-.main-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Cover the area while maintaining aspect ratio */
-  object-position: center; /* Center the image */
-}
+/* Removed unused: .hero-image and .main-image (no inline hero <img>) */
 
 /* Right side - Donation form section */
 .donation-form-section {
@@ -313,6 +277,10 @@ html {
   min-height: 80px;       /* Match height */
   border-radius: 12px;    /* Rounded corners like US$ buttons */
   border: 3px solid black; /* Same border as US$ boxes */
+  display: flex;              /* Center content inside the box */
+  align-items: center;        /* Vertically center */
+  justify-content: center;    /* Horizontally center */
+  text-align: center;         /* Center multi-line text like CUSTOM/AMOUNT */
 }
 
 /* Custom amount row: keeps items centered and side-by-side */
@@ -363,6 +331,7 @@ html {
   gap: 10px;
 }
 
+/* Make payment buttons center their content (text or image) and smaller/rounded */
 .payment-btn {
   flex: 1; /* Each button takes equal space */
   padding: 12px 8px;
@@ -373,21 +342,27 @@ html {
   cursor: pointer;
   transition: all 0.3s ease; /* Smooth transition for all changes */
   font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova for payment buttons */
+  display: flex;             /* Center content inside the button */
+  align-items: center;       /* Vertically center */
+  justify-content: center;   /* Horizontally center */
+  text-align: center;        /* Center any text */
+  border-radius: 12px;        /* Rounded buttons */
+  min-height: 44px;           /* Smaller height */
+  padding: 8px 10px;          /* Smaller padding for text button */
 }
 
-/* Make payment buttons feel clickable */
-.payment-btn:hover {
-  background-color: #f5f1d8; /* Slightly darker cream on hover */
-  transform: scale(1.05); /* Slightly grow on hover */
+/* Apple Pay button: image fills entire button */
+#pay-apple + label.payment-btn {
+  padding: 0;                 /* No padding so image can fill */
+  overflow: hidden;           /* Hide any overflow from the image */
 }
 
-.payment-btn:focus {
-  outline: 3px solid #FFC907; /* Yellow outline when focused */
-  outline-offset: 2px;
-}
-
-.payment-btn:active {
-  transform: scale(0.98); /* Slightly shrink when clicked */
+/* Make the Apple Pay image fill the button area */
+#pay-apple + label.payment-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;        /* Keep image aspect ratio inside the button */
+  display: block;
 }
 
 /* Final donate button - Make it more interactive */
@@ -407,7 +382,7 @@ html {
 .donate-submit-btn:hover {
   background-color: #000000; /* Pure black on hover */
   transform: translateY(-3px) scale(1.02); /* Lift and slightly grow */
-  box-shadow: 0 6px 12px rgba(26, 26, 26, 0.3); /* Dark shadow on hover */
+  box-shadow: 0 6px 12px rgba(0, 26, 26, 0.3); /* Dark shadow on hover */
 }
 
 .donate-submit-btn:focus {
@@ -417,13 +392,13 @@ html {
 
 .donate-submit-btn:active {
   transform: translateY(-1px) scale(1.01); /* Less lift when clicked */
-  box-shadow: 0 3px 6px rgba(26, 26, 26, 0.2); /* Smaller shadow when clicked */
+  box-shadow: 0 3px 6px rgba(0, 26, 26, 0.2); /* Smaller shadow when clicked */
 }
 
-/* About Us Box: dark background and cream text */
+/* About Us Box: blue background, cream text */
 .about-section {
-  background-color: #1a1a1a;          /* Updated background */
-  color: #fff7e1;                     /* Updated text color */
+  background-color: #003366;  /* Blue box */
+  color: #fff7e1;             /* Keep cream text for contrast */
   font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova */
   padding: 24px 16px;                 /* Simple inner spacing */
   margin: 20px auto;                  /* Space above and below, center horizontally */
@@ -444,8 +419,8 @@ html {
 
 /* FAQs section styled similar to About for consistency */
 .faqs-section {
-  background-color: #1a1a1a;          /* Updated background */
-  color: #fff7e1;                     /* Updated text color */
+  background-color: #003366;  /* Blue box */
+  color: #fff7e1;             /* Keep cream text for contrast */
   font-family: 'Proxima Nova', Arial, sans-serif;
   padding: 24px 16px;
   margin: 20px auto;
@@ -461,6 +436,34 @@ html {
 .faqs-section p {
   margin: 10px 0;
   line-height: 1.6;
+}
+
+/* Footer Logo Section - centered at the bottom of the page */
+.footer-logo-section {
+  /* Centers the logo box */
+  display: flex;
+  justify-content: center;
+  padding: 20px 16px;  /* Space around the box */
+  margin: 20px auto;   /* Space from other sections */
+  max-width: 1200px;   /* Keep width similar to other sections */
+}
+
+/* The rounded cream box that wraps the image */
+.footer-logo-box {
+  background-color: #fff7e1; /* Cream background as requested */
+  border-radius: 12px;       /* Rounded corners */
+  padding: 16px;             /* Space inside the box */
+  display: flex;             /* Center the image inside */
+  align-items: center;
+  justify-content: center;
+}
+
+/* The logo image - fits inside the box and scales on small screens */
+.footer-logo-img {
+  max-width: 220px; /* Limit size so it fits nicely */
+  width: 100%;      /* Shrink on small screens */
+  height: auto;     /* Keep original aspect ratio */
+  display: block;   /* Remove extra space under the image */
 }
 
 /* 
@@ -490,29 +493,52 @@ html {
   .header {
     padding: 10px 20px;
   }
-  
-  .logo-text {
-    font-size: 20px;
-  }
-  
+
+  /* Removed unused: .logo-text mobile override */
+
   .main-headline {
     font-size: 28px;
   }
-  
+
   .hero-text {
     font-size: 16px;
   }
-  
+
   .hero-content {
     padding: 30px 20px;
   }
-  
+
   .donation-form-section {
     padding: 20px;
   }
-  
+
+  /* Remove page-wide hero background on mobile */
+  .hero-section {
+    background-image: none; /* We'll show the image inside the box below */
+    /* ...existing code... */
+  }
+
+  /* Make the hero image a rounded box above the donation box */
+  .hero-content {
+    background-image: url('img/hero-image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    min-height: 260px;
+    padding: 0;
+    margin-bottom: 16px;
+  }
+
+  /* Hide the text inside the hero image box on mobile */
+  .hero-content .main-headline,
+  .hero-content .hero-text {
+    display: none;
+  }
+
   .payment-methods {
-    flex-direction: column; /* Stack payment buttons vertically */
+    flex-direction: column;
   }
 
   .custom-amount-btn {
@@ -526,36 +552,45 @@ html {
 /* Desktop-only: fix nav and center the options */
 @media (min-width: 1025px) {
   .top-nav {
-    position: fixed;          /* Keep the nav in place while scrolling */
-    top: 60px;                /* Sit below the header (adjust if needed) */
+    position: fixed;
+    top: 60px;
     left: 0;
-    right: 0;                 /* Stretch across the entire screen */
+    right: 0;
     width: 100%;
-    z-index: 10;              /* Ensure it stays above content */
-    justify-content: center; /* Center the nav content */
+    z-index: 10;
+    justify-content: center;
   }
 
   .top-nav .nav-links {
-    display: flex;            /* Ensure links are in a row */
-    justify-content: center;  /* Center the links group */
-    gap: 20px;                /* Even spacing between links */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
   }
 
   .top-nav .nav-links a {
-    margin-left: 0;           /* Remove left margin so centering is accurate */
+    margin-left: 0;
   }
 
-  /* Make the main content span the full screen on desktop */
   .main-container {
-    margin-top: 60px;           /* Prevent nav overlap (existing) */
-    max-width: none;            /* Remove the 1200px limit */
-    width: 100%;                /* Use full viewport width */
-    padding: 0 16px;            /* Small side padding */
+    margin-top: 60px;
+    max-width: none;
+    width: 100%;
+    padding: 0 16px;
   }
 
-  /* Push the yellow donation box to the far right */
+  .hero-section {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 16px;
+  }
+
   .donation-form-section {
-    margin-left: auto;          /* Move to the right */
-    margin-right: 0;            /* Stick to the edge */
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  /* Move the hero headline and subheading slightly to the left on desktop */
+  .hero-content {
+    padding-left: 16px; /* Reduced from 30px to shift text left a bit */
   }
 }

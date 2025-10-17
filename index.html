@@ -10,16 +10,14 @@
     <!-- Header Section: Contains the charity: water logo and branding -->
     <header class="header">
         <div class="logo-container">
-            <!-- Yellow water drop icon -->
-            <div class="water-drop-icon">💧</div>
-            <!-- charity: water text logo -->
-            <h1 class="logo-text">charity: water</h1>
+            <!-- Replace emoji + text with the logo image -->
+            <img src="img/cw_logo-2.png" alt="charity: water logo" class="logo-image">
         </div>
     </header>
 
     <!-- Main Container: Holds the hero content and donation form side by side -->
     <main class="main-container">
-        <!-- Left Side: Hero content with image and message -->
+        <!-- Hero content and donation form -->
         <section class="hero-section">
             <!-- Transparent navigation bar above the headline -->
             <nav class="top-nav" aria-label="Main">
@@ -36,80 +34,82 @@
                     Your donation will provide access to clean and drinkable water to underprivileged people.
                 </p>
             </div>
-        </section>
 
-        <!-- Right Side: Donation form -->
-        <section class="donation-form-section" id="donate">
-            <!-- Top message about donation impact -->
-            <div class="donation-message">
-                <p><strong>100% of your donation provides clean water.</strong></p>
-                <p>You'll receive updates tracking the lives you've aided in changing.</p>
-            </div>
-
-            <!-- Donation form -->
-            <form class="donation-form">
-                <!-- Frequency selection: Single or Monthly -->
-                <div class="frequency-selector" role="group" aria-label="Donation frequency">
-                    <!-- Hidden radio inputs + labels styled as buttons -->
-                    <input type="radio" id="freq-single" name="frequency" value="single" class="visually-hidden" checked>
-                    <label for="freq-single" class="frequency-btn">SINGLE</label>
-
-                    <input type="radio" id="freq-monthly" name="frequency" value="monthly" class="visually-hidden">
-                    <label for="freq-monthly" class="frequency-btn">MONTHLY</label>
+            <!-- Donation form moved inside hero so the hero section includes it -->
+            <section class="donation-form-section" id="donate">
+                <!-- Top message about donation impact -->
+                <div class="donation-message">
+                    <p><strong>100% of your donation provides clean water.</strong></p>
+                    <p>You'll receive updates tracking the lives you've aided in changing.</p>
                 </div>
 
-                <!-- Amount selection -->
-                <div class="amount-grid" role="group" aria-label="Donation amount">
-                    <!-- Each input is hidden; label looks like a button -->
-                    <input type="radio" id="amt-5" name="amount" value="5" class="visually-hidden">
-                    <label for="amt-5" class="amount-btn">US$5</label>
+                <!-- Donation form -->
+                <form class="donation-form">
+                    <!-- Frequency selection: Single or Monthly -->
+                    <div class="frequency-selector" role="group" aria-label="Donation frequency">
+                        <!-- Hidden radio inputs + labels styled as buttons -->
+                        <input type="radio" id="freq-single" name="frequency" value="single" class="visually-hidden" checked>
+                        <label for="freq-single" class="frequency-btn">SINGLE</label>
 
-                    <input type="radio" id="amt-10" name="amount" value="10" class="visually-hidden">
-                    <label for="amt-10" class="amount-btn">US$10</label>
+                        <input type="radio" id="freq-monthly" name="frequency" value="monthly" class="visually-hidden">
+                        <label for="freq-monthly" class="frequency-btn">MONTHLY</label>
+                    </div>
 
-                    <input type="radio" id="amt-25" name="amount" value="25" class="visually-hidden">
-                    <label for="amt-25" class="amount-btn">US$25</label>
+                    <!-- Amount selection -->
+                    <div class="amount-grid" role="group" aria-label="Donation amount">
+                        <!-- Each input is hidden; label looks like a button -->
+                        <input type="radio" id="amt-5" name="amount" value="5" class="visually-hidden">
+                        <label for="amt-5" class="amount-btn">US$5</label>
 
-                    <input type="radio" id="amt-50" name="amount" value="50" class="visually-hidden">
-                    <label for="amt-50" class="amount-btn">US$50</label>
-                </div>
+                        <input type="radio" id="amt-10" name="amount" value="10" class="visually-hidden">
+                        <label for="amt-10" class="amount-btn">US$10</label>
 
-                <!-- Custom amount row: button + input that appears beside it -->
-                <div class="custom-row">
-                  <input type="radio" id="amt-custom" name="amount" value="custom" class="visually-hidden">
-                  <label for="amt-custom" class="custom-amount-btn">
-                      CUSTOM<br>AMOUNT
-                  </label>
-                  <!-- This input is hidden until "Custom" is selected -->
-                  <input
-                    type="number"
-                    id="custom-amount"
-                    class="custom-amount-input"
-                    placeholder="ENTER AMOUNT"
-                    inputmode="numeric"
-                    min="1"
-                    step="1"
-                    aria-label="Enter custom donation amount">
-                </div>
+                        <input type="radio" id="amt-25" name="amount" value="25" class="visually-hidden">
+                        <label for="amt-25" class="amount-btn">US$25</label>
 
-                <!-- Email input -->
-                <input type="email" class="form-input" placeholder="ENTER EMAIL" required tabindex="0" aria-label="Enter your email address">
+                        <input type="radio" id="amt-50" name="amount" value="50" class="visually-hidden">
+                        <label for="amt-50" class="amount-btn">US$50</label>
+                    </div>
 
-                <!-- Name input -->
-                <input type="text" class="form-input" placeholder="ENTER NAME" required tabindex="0" aria-label="Enter your full name">
+                    <!-- Custom amount row: button + input that appears beside it -->
+                    <div class="custom-row">
+                      <input type="radio" id="amt-custom" name="amount" value="custom" class="visually-hidden">
+                      <label for="amt-custom" class="custom-amount-btn">
+                          CUSTOM<br>AMOUNT
+                      </label>
+                      <!-- This input is hidden until "Custom" is selected -->
+                      <input
+                        type="number"
+                        id="custom-amount"
+                        class="custom-amount-input"
+                        placeholder="ENTER AMOUNT"
+                        inputmode="numeric"
+                        min="1"
+                        step="1"
+                        aria-label="Enter custom donation amount">
+                    </div>
 
-                <!-- Payment method selection -->
-                <div class="payment-methods" role="group" aria-label="Payment method">
-                    <input type="radio" id="pay-apple" name="payment" value="apple" class="visually-hidden">
-                    <label for="pay-apple" class="payment-btn">🍎 Pay</label>
+                    <!-- Email input -->
+                    <input type="email" class="form-input" placeholder="ENTER EMAIL" required tabindex="0" aria-label="Enter your email address">
 
-                    <input type="radio" id="pay-card" name="payment" value="card" class="visually-hidden">
-                    <label for="pay-card" class="payment-btn">CREDIT/ DEBIT CARD</label>
-                </div>
+                    <!-- Name input -->
+                    <input type="text" class="form-input" placeholder="ENTER NAME" required tabindex="0" aria-label="Enter your full name">
 
-                <!-- Donate button -->
-                <button type="submit" class="donate-submit-btn" tabindex="0" aria-label="Complete your donation">DONATE NOW</button>
-            </form>
+                    <!-- Payment method selection -->
+                    <div class="payment-methods" role="group" aria-label="Payment method">
+                        <input type="radio" id="pay-apple" name="payment" value="apple" class="visually-hidden">
+                        <label for="pay-apple" class="payment-btn">
+                          <img src="img/apple-pay.png" alt="Apple Pay">
+                        </label>
+
+                        <input type="radio" id="pay-card" name="payment" value="card" class="visually-hidden">
+                        <label for="pay-card" class="payment-btn">CREDIT/ DEBIT CARD</label>
+                    </div>
+
+                    <!-- Donate button -->
+                    <button type="submit" class="donate-submit-btn" tabindex="0" aria-label="Complete your donation">DONATE NOW</button>
+                </form>
+            </section>
         </section>
     </main>
 
@@ -136,6 +136,14 @@
       Yes, your donation may be tax-deductible. Please keep your receipt.</p>
       <p><strong>How can I get updates?</strong><br>
       We’ll email updates showing the impact you helped create.</p>
+    </section>
+
+    <!-- Footer Logo Section: shows the cw_logo.png in a rounded cream box -->
+    <section class="footer-logo-section">
+      <!-- This box holds the logo and has a rounded cream background -->
+      <div class="footer-logo-box">
+        <img src="img/cw_logo.png" alt="charity: water logo" class="footer-logo-img">
+      </div>
     </section>
 </body>
 </html>
