@@ -21,6 +21,14 @@
     <main class="main-container">
         <!-- Left Side: Hero content with image and message -->
         <section class="hero-section">
+            <!-- Transparent navigation bar above the headline -->
+            <nav class="top-nav" aria-label="Main">
+                <div class="nav-links">
+                    <a href="#about">ABOUT US</a>
+                    <a href="#donate">DONATE NOW</a>
+                    <a href="#faqs">FAQs</a>
+                </div>
+            </nav>
             <div class="hero-content">
                 <!-- Main headline -->
                 <h2 class="main-headline">DONATE FUNDS TODAY.</h2>
@@ -28,14 +36,10 @@
                     Your donation will provide access to clean and drinkable water to underprivileged people.
                 </p>
             </div>
-            <!-- Hero image of person with clean water -->
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=800&q=80" alt="Person holding clean water" class="main-image">
-            </div>
         </section>
 
         <!-- Right Side: Donation form -->
-        <section class="donation-form-section">
+        <section class="donation-form-section" id="donate">
             <!-- Top message about donation impact -->
             <div class="donation-message">
                 <p><strong>100% of your donation provides clean water.</strong></p>
@@ -45,41 +49,94 @@
             <!-- Donation form -->
             <form class="donation-form">
                 <!-- Frequency selection: Single or Monthly -->
-                <div class="frequency-selector">
-                    <button type="button" class="frequency-btn active">SINGLE</button>
-                    <button type="button" class="frequency-btn">MONTHLY</button>
+                <div class="frequency-selector" role="group" aria-label="Donation frequency">
+                    <!-- Hidden radio inputs + labels styled as buttons -->
+                    <input type="radio" id="freq-single" name="frequency" value="single" class="visually-hidden" checked>
+                    <label for="freq-single" class="frequency-btn">SINGLE</label>
+
+                    <input type="radio" id="freq-monthly" name="frequency" value="monthly" class="visually-hidden">
+                    <label for="freq-monthly" class="frequency-btn">MONTHLY</label>
                 </div>
 
-                <!-- Amount selection grid -->
-                <div class="amount-grid">
-                    <button type="button" class="amount-btn">US$5</button>
-                    <button type="button" class="amount-btn">US$10</button>
-                    <button type="button" class="amount-btn">US$25</button>
-                    <button type="button" class="amount-btn">US$50</button>
+                <!-- Amount selection -->
+                <div class="amount-grid" role="group" aria-label="Donation amount">
+                    <!-- Each input is hidden; label looks like a button -->
+                    <input type="radio" id="amt-5" name="amount" value="5" class="visually-hidden">
+                    <label for="amt-5" class="amount-btn">US$5</label>
+
+                    <input type="radio" id="amt-10" name="amount" value="10" class="visually-hidden">
+                    <label for="amt-10" class="amount-btn">US$10</label>
+
+                    <input type="radio" id="amt-25" name="amount" value="25" class="visually-hidden">
+                    <label for="amt-25" class="amount-btn">US$25</label>
+
+                    <input type="radio" id="amt-50" name="amount" value="50" class="visually-hidden">
+                    <label for="amt-50" class="amount-btn">US$50</label>
                 </div>
 
-                <!-- Custom amount button -->
-                <button type="button" class="custom-amount-btn">
-                    CUSTOM<br>AMOUNT
-                </button>
+                <!-- Custom amount row: button + input that appears beside it -->
+                <div class="custom-row">
+                  <input type="radio" id="amt-custom" name="amount" value="custom" class="visually-hidden">
+                  <label for="amt-custom" class="custom-amount-btn">
+                      CUSTOM<br>AMOUNT
+                  </label>
+                  <!-- This input is hidden until "Custom" is selected -->
+                  <input
+                    type="number"
+                    id="custom-amount"
+                    class="custom-amount-input"
+                    placeholder="ENTER AMOUNT"
+                    inputmode="numeric"
+                    min="1"
+                    step="1"
+                    aria-label="Enter custom donation amount">
+                </div>
 
                 <!-- Email input -->
-                <input type="email" class="form-input" placeholder="ENTER EMAIL" required>
+                <input type="email" class="form-input" placeholder="ENTER EMAIL" required tabindex="0" aria-label="Enter your email address">
 
                 <!-- Name input -->
-                <input type="text" class="form-input" placeholder="ENTER NAME" required>
+                <input type="text" class="form-input" placeholder="ENTER NAME" required tabindex="0" aria-label="Enter your full name">
 
                 <!-- Payment method selection -->
-                <div class="payment-methods">
-                    <button type="button" class="payment-btn">🍎 Pay</button>
-                    <button type="button" class="payment-btn">CREDIT/ DEBIT CARD</button>
+                <div class="payment-methods" role="group" aria-label="Payment method">
+                    <input type="radio" id="pay-apple" name="payment" value="apple" class="visually-hidden">
+                    <label for="pay-apple" class="payment-btn">🍎 Pay</label>
+
+                    <input type="radio" id="pay-card" name="payment" value="card" class="visually-hidden">
+                    <label for="pay-card" class="payment-btn">CREDIT/ DEBIT CARD</label>
                 </div>
 
                 <!-- Donate button -->
-                <button type="submit" class="donate-submit-btn">DONATE NOW</button>
+                <button type="submit" class="donate-submit-btn" tabindex="0" aria-label="Complete your donation">DONATE NOW</button>
             </form>
         </section>
     </main>
+
+    <!-- About Us Section: simple dark blue box with Proxima Nova text -->
+    <section class="about-section" id="about">
+      <h2>About Us</h2>
+      <p>
+        At charity: water, we believe that everyone deserves clean water! Every person on Earth should have access to safe, drinkable water — and we’re on a mission to make that happen.
+      </p>
+      <p>
+        100% of public donations have gone directly to funding water projects that transform lives. From rural villages to remote communities, we partner with local experts to bring clean water where it’s needed most — creating lasting change that ripples through health, education, and opportunity.
+      </p>
+      <p>
+        Join us. Change lives — one drop at a time.
+      </p>
+    </section>
+
+    <!-- FAQs Section: target for the nav link -->
+    <section class="faqs-section" id="faqs">
+      <h2>FAQs</h2>
+      <p><strong>Where does my donation go?</strong><br>
+      100% of public donations go to clean water projects.</p>
+      <p><strong>Is my donation tax-deductible?</strong><br>
+      Yes, your donation may be tax-deductible. Please keep your receipt.</p>
+      <p><strong>How can I get updates?</strong><br>
+      We’ll email updates showing the impact you helped create.</p>
+    </section>
 </body>
 </html>
 

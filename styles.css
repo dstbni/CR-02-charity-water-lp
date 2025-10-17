@@ -32,14 +32,19 @@ Fonts:
 
 body {
   font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
-  background: linear-gradient(135deg, #2E9DF7 0%, #8BD1CB 100%); /* Blue gradient background */
+  background-color: #003366; /* Dark blue background for entire page */
   min-height: 100vh; /* Make sure page takes full height */
   color: #222;
 }
 
+/* Smooth scrolling when clicking nav links */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Header section with logo */
 .header {
-  background-color: rgba(46, 157, 247, 0.9); /* Semi-transparent blue */
+  background-color: #003366; /* Dark blue background for header */
   padding: 15px 30px;
 }
 
@@ -63,10 +68,47 @@ body {
 }
 
 .logo-text {
-  color: white;
+  color: #fff7e1; /* Changed from white */
   font-size: 24px;
   font-weight: normal;
   letter-spacing: 2px;
+}
+
+/* Transparent top navigation bar inside the hero section */
+.top-nav {
+  /* Transparent background lets the hero area show through */
+  background-color: rgba(26, 26, 26, 0.7); /* Translucent #1a1a1a */
+  position: absolute;   /* Sit at the top of the hero section */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;           /* Keep on top of hero content */
+  display: flex;        /* Put brand and links in a row */
+  align-items: center;  /* Vertically center items */
+  justify-content: space-between; /* Space between brand and links */
+  padding: 12px 16px;   /* Simple spacing */
+  font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova */
+}
+
+/* Brand/heading in the nav (requested color #1a1a1a) */
+.top-nav .nav-brand {
+  color: #1a1a1a;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Nav links */
+.top-nav .nav-links a {
+  color: #fff7e1; /* Changed from #ffffff */
+  text-decoration: none;         /* Remove underline */
+  margin-left: 16px;             /* Space between links */
+  font-weight: bold;
+  font-family: 'Proxima Nova', Arial, sans-serif;
+}
+
+/* Simple hover to show they are clickable */
+.top-nav .nav-links a:hover {
+  text-decoration: underline;
 }
 
 /* Main container holds hero and donation form side by side */
@@ -76,6 +118,7 @@ body {
   margin: 0 auto; /* Center the container */
   gap: 0; /* No gap between sections */
   min-height: calc(100vh - 70px); /* Take remaining height after header */
+  align-items: flex-start; /* Do not stretch columns to full height on desktop */
 }
 
 /* Left side - Hero section with image and text */
@@ -87,8 +130,8 @@ body {
 }
 
 .hero-content {
-  background: linear-gradient(135deg, #2E9DF7 0%, #1a7bc7 100%); /* Blue gradient */
-  color: white;
+  background-color: #003366; /* Dark blue background for hero content */
+  color: #fff7e1; /* Changed from white */
   padding: 40px 30px;
   flex: 1; /* Take up available space */
 }
@@ -98,12 +141,14 @@ body {
   font-weight: bold;
   margin-bottom: 20px;
   letter-spacing: 1px;
+  font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova for heading */
 }
 
 .hero-text {
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 20px;
+  font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova for subheading */
 }
 
 .hero-image {
@@ -125,6 +170,10 @@ body {
   padding: 30px;
   display: flex;
   flex-direction: column; /* Stack elements vertically */
+  border-radius: 16px;        /* Rounded corners */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15); /* Soft shadow for depth */
+  margin-left: auto;          /* Push the box to the far right */
+  align-self: flex-start; /* Ensure the yellow box sizes only to its content */
 }
 
 .donation-message {
@@ -145,7 +194,7 @@ body {
   gap: 15px; /* Space between form elements */
 }
 
-/* Frequency selector (Single/Monthly) */
+/* Frequency selector (Single/Monthly) - Make buttons more interactive */
 .frequency-selector {
   display: flex; /* Put buttons side by side */
   border: 3px solid black;
@@ -157,81 +206,155 @@ body {
   flex: 1; /* Each button takes equal space */
   padding: 12px;
   border: none;
-  background-color: white;
+  background-color: #fff7e1; /* Light cream background for frequency buttons */
   font-weight: bold;
   font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease; /* Smooth transition for all changes */
 }
 
 .frequency-btn.active {
-  background-color: black;
-  color: white;
+  background-color: #fff7e1; /* Light cream background for active frequency button */
+  color: black; /* Black text for better contrast on cream background */
 }
 
+/* Make frequency buttons feel clickable with hover and focus effects */
 .frequency-btn:hover {
-  background-color: #f0f0f0;
+  background-color: #f5f1d8; /* Slightly darker cream on hover */
+  transform: scale(1.02); /* Slightly grow on hover */
 }
 
 .frequency-btn.active:hover {
-  background-color: black;
+  background-color: #f5f1d8; /* Same darker cream on hover when active */
 }
 
-/* Amount selection grid */
-.amount-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal columns */
-  gap: 10px;
+/* Helper class: hide radios but keep them accessible */
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+/* --- Selected (checked) styles: highlight with #1a1a1a --- */
+/* When a radio is checked, style the next label like a selected button */
+.frequency-selector input:checked + .frequency-btn {
+  background-color: #1a1a1a;
+  color: #fff7e1; /* Changed from #ffffff */
+}
+
+.amount-grid input:checked + .amount-btn {
+  background-color: #1a1a1a;
+  color: #fff7e1; /* Changed from #ffffff */
+}
+
+#amt-custom:checked + .custom-amount-btn {
+  background-color: #1a1a1a;
+  color: #fff7e1; /* Changed from #ffffff */
+}
+
+.payment-methods input:checked + .payment-btn {
+  background-color: #1a1a1a;
+  color: #fff7e1; /* Changed from #ffffff */
+}
+
+/* --- Keep default (unselected) backgrounds cream --- */
+.frequency-btn {
+  /* ...existing code... */
+  background-color: #fff7e1;
 }
 
 .amount-btn {
-  padding: 20px;
-  border: 3px solid black;
-  background-color: white;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  /* ...existing code... */
+  background-color: #fff7e1;
 }
 
-.amount-btn:hover {
-  background-color: #f0f0f0;
-}
-
-/* Custom amount button */
 .custom-amount-btn {
-  padding: 15px;
+  /* ...existing code... */
+  background-color: #fff7e1;
+}
+
+.payment-btn {
+  /* ...existing code... */
+  background-color: #fff7e1;
+}
+
+/* --- Amount layout: simple flex instead of grid for beginners --- */
+.amount-grid {
+  /* Replace grid with flex for a simpler layout */
+  display: flex;
+  flex-wrap: wrap;           /* Allow items to wrap to next line */
+  gap: 10px;                 /* Space between buttons */
+}
+
+/* Make each US$ box bigger and rounded */
+.amount-btn {
+  padding: 28px;             /* Bigger padding for a larger button */
   border: 3px solid black;
-  background-color: white;
+  background-color: #fff7e1; /* Keep cream background */
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;           /* Slightly bigger text */
   cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for all changes */
+  display: inline-flex;      /* Center text inside the button */
+  align-items: center;       /* Vertically center text */
+  justify-content: center;   /* Horizontally center text */
+  width: 48%;                /* 2 per row (2x2 look) */
   text-align: center;
-  line-height: 1.3;
-  transition: background-color 0.3s;
+  min-height: 80px;          /* Ensure a consistent tall size */
+  border-radius: 12px;       /* Rounded corners */
 }
 
-.custom-amount-btn:hover {
-  background-color: #f0f0f0;
+/* Make Custom Amount look like the US$ buttons and center it */
+.custom-amount-btn {
+  display: block;         /* So we can center it with margins */
+  width: 48%;             /* Same width as US$ buttons (2 per row look) */
+  margin: 0 auto;         /* Center the button */
+  padding: 28px;          /* Bigger padding to match */
+  font-size: 18px;        /* Match text size */
+  min-height: 80px;       /* Match height */
+  border-radius: 12px;    /* Rounded corners like US$ buttons */
+  border: 3px solid black; /* Same border as US$ boxes */
 }
 
-/* Form input fields */
-.form-input {
-  padding: 15px;
-  border: 3px solid black;
-  background-color: white;
-  font-size: 14px;
-  font-weight: bold;
+/* Custom amount row: keeps items centered and side-by-side */
+.custom-row {
+  display: flex;              /* Place items in a row */
+  justify-content: center;    /* Center the row content */
+  gap: 10px;                  /* Space between button and input */
+  flex-wrap: wrap;            /* Allow wrapping on small widths */
+  /* Small top spacing to separate from amount grid */
+  margin-top: 10px;
 }
 
-.form-input::placeholder {
-  color: #666;
-  font-weight: bold;
+/* Custom amount input: hidden by default; same look as US$ boxes */
+.custom-amount-input {
+  display: none;              /* Hidden until "Custom" is selected */
+  width: 48%;                 /* Same width as US$ boxes (2 per row look) */
+  padding: 28px;              /* Match padding */
+  min-height: 80px;           /* Match height */
+  border: 3px solid black;    /* Same border */
+  border-radius: 12px;        /* Rounded corners */
+  background-color: #fff7e1;  /* Same background */
+  font-weight: bold;          /* Bold text like buttons */
+  font-size: 18px;            /* Same size */
+  text-align: center;         /* Center placeholder text */
+  color: #222;                /* Readable text color */
 }
 
-.form-input:focus {
-  outline: none;
-  background-color: #f9f9f9;
+/* Show input beside the custom button when selected (no JavaScript needed) */
+#amt-custom:checked ~ .custom-amount-input {
+  display: inline-block;
+}
+
+/* Make placeholder easy to read */
+.custom-amount-input::placeholder {
+  color: #333;
+}
+
+/* Focus state for accessibility */
+.custom-amount-input:focus {
+  outline: 3px solid #FFC907; /* Yellow outline on focus */
+  outline-offset: 2px;
+  background-color: #f9f1d9;  /* Slightly lighter for focus */
 }
 
 /* Payment methods */
@@ -244,33 +367,100 @@ body {
   flex: 1; /* Each button takes equal space */
   padding: 12px 8px;
   border: 3px solid black;
-  background-color: white;
+  background-color: #fff7e1; /* Light cream background for payment buttons */
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease; /* Smooth transition for all changes */
+  font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova for payment buttons */
 }
 
+/* Make payment buttons feel clickable */
 .payment-btn:hover {
-  background-color: #f0f0f0;
+  background-color: #f5f1d8; /* Slightly darker cream on hover */
+  transform: scale(1.05); /* Slightly grow on hover */
 }
 
-/* Final donate button */
+.payment-btn:focus {
+  outline: 3px solid #FFC907; /* Yellow outline when focused */
+  outline-offset: 2px;
+}
+
+.payment-btn:active {
+  transform: scale(0.98); /* Slightly shrink when clicked */
+}
+
+/* Final donate button - Make it more interactive */
 .donate-submit-btn {
   padding: 18px;
   border: none;
-  background-color: #2E9DF7; /* Blue background */
-  color: white;
+  background-color: #1a1a1a; /* Dark gray/black background for donate button */
+  color: #fff7e1; /* Changed from white */
   font-weight: bold;
   font-size: 18px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: all 0.3s ease; /* Smooth transition for all changes */
   margin-top: 10px;
 }
 
+/* Make donate button feel very clickable with strong hover effects */
 .donate-submit-btn:hover {
-  background-color: #1a7bc7; /* Darker blue on hover */
-  transform: translateY(-2px); /* Slight lift effect */
+  background-color: #000000; /* Pure black on hover */
+  transform: translateY(-3px) scale(1.02); /* Lift and slightly grow */
+  box-shadow: 0 6px 12px rgba(26, 26, 26, 0.3); /* Dark shadow on hover */
+}
+
+.donate-submit-btn:focus {
+  outline: 3px solid #FFC907; /* Yellow outline when focused */
+  outline-offset: 2px;
+}
+
+.donate-submit-btn:active {
+  transform: translateY(-1px) scale(1.01); /* Less lift when clicked */
+  box-shadow: 0 3px 6px rgba(26, 26, 26, 0.2); /* Smaller shadow when clicked */
+}
+
+/* About Us Box: dark background and cream text */
+.about-section {
+  background-color: #1a1a1a;          /* Updated background */
+  color: #fff7e1;                     /* Updated text color */
+  font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova */
+  padding: 24px 16px;                 /* Simple inner spacing */
+  margin: 20px auto;                  /* Space above and below, center horizontally */
+  max-width: 1200px;                  /* Match main content width */
+  border-radius: 12px;                /* Soft rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for depth */
+}
+
+/* About Us heading and text spacing */
+.about-section h2 {
+  margin: 0 0 12px 0;                 /* Space under heading */
+}
+
+.about-section p {
+  margin: 10px 0;                      /* Space between paragraphs */
+  line-height: 1.6;                    /* Easier to read */
+}
+
+/* FAQs section styled similar to About for consistency */
+.faqs-section {
+  background-color: #1a1a1a;          /* Updated background */
+  color: #fff7e1;                     /* Updated text color */
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  padding: 24px 16px;
+  margin: 20px auto;
+  max-width: 1200px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.faqs-section h2 {
+  margin: 0 0 12px 0;
+}
+
+.faqs-section p {
+  margin: 10px 0;
+  line-height: 1.6;
 }
 
 /* 
@@ -321,11 +511,51 @@ body {
     padding: 20px;
   }
   
-  .amount-grid {
-    grid-template-columns: 1fr; /* Single column on mobile */
-  }
-  
   .payment-methods {
     flex-direction: column; /* Stack payment buttons vertically */
+  }
+
+  .custom-amount-btn {
+    width: 100%;
+  }
+  .custom-amount-input {
+    width: 100%;
+  }
+}
+
+/* Desktop-only: fix nav and center the options */
+@media (min-width: 1025px) {
+  .top-nav {
+    position: fixed;          /* Keep the nav in place while scrolling */
+    top: 60px;                /* Sit below the header (adjust if needed) */
+    left: 0;
+    right: 0;                 /* Stretch across the entire screen */
+    width: 100%;
+    z-index: 10;              /* Ensure it stays above content */
+    justify-content: center; /* Center the nav content */
+  }
+
+  .top-nav .nav-links {
+    display: flex;            /* Ensure links are in a row */
+    justify-content: center;  /* Center the links group */
+    gap: 20px;                /* Even spacing between links */
+  }
+
+  .top-nav .nav-links a {
+    margin-left: 0;           /* Remove left margin so centering is accurate */
+  }
+
+  /* Make the main content span the full screen on desktop */
+  .main-container {
+    margin-top: 60px;           /* Prevent nav overlap (existing) */
+    max-width: none;            /* Remove the 1200px limit */
+    width: 100%;                /* Use full viewport width */
+    padding: 0 16px;            /* Small side padding */
+  }
+
+  /* Push the yellow donation box to the far right */
+  .donation-form-section {
+    margin-left: auto;          /* Move to the right */
+    margin-right: 0;            /* Stick to the edge */
   }
 }
